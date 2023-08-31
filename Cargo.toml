@@ -1,0 +1,11 @@
+[package]
+name = "delay_writer"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tim Voßhenrich"]
+description = "Wraps a writer and delays its output after each newline."
+readme = "README.md"
+repository = "https://github.com/T1mVo/delay_writer"
+license = "MIT OR Apache-2.0"
+keywords = ["writer", "delay"]
+categories = ["text-processing"]
