@@ -6,6 +6,7 @@ authors = ["Tim Voßhenrich"]
 description = "Wraps a writer and delays its output after each newline."
 readme = "README.md"
 repository = "https://github.com/T1mVo/delay_writer"
+documentation = "https://docs.rs/delay_writer"
 license = "MIT OR Apache-2.0"
 keywords = ["writer", "delay"]
 categories = ["text-processing"]
