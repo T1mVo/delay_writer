@@ -8,7 +8,7 @@ Add `delay_writer` in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-delay_writer = "0.1.0"
+delay_writer = "0.2.1"
 ```
 
 ## Usage
