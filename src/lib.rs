@@ -1,13 +1,18 @@
-use std::{io::Write, thread, time::Duration};
+use core::fmt;
+use std::{
+    io::{Seek, Write},
+    thread,
+    time::Duration,
+};
 
 /// Wraps a writer and delays its output after each newline.
-/// 
+///
 /// `DelayWriter<W>` can be used to display text with multiple lines with
 /// a smooth animation. Waits for a `Duration` after each newline (`\n`)
 /// in the input buffer.
-/// 
+///
 /// # Examples
-/// 
+///
 /// ```
 /// use std::{time::Duration, io::Write};
 /// use delay_writer::DelayWriter;
@@ -51,6 +56,21 @@ impl<W: Write> Write for DelayWriter<W> {
 
     fn flush(&mut self) -> std::io::Result<()> {
         self.inner.flush()
+    }
+}
+
+impl<W: Write + fmt::Debug> fmt::Debug for DelayWriter<W> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("DelayWriter")
+            .field("inner", &self.inner)
+            .field("delay", &self.delay)
+            .finish()
+    }
+}
+
+impl<W: Write + Seek> Seek for DelayWriter<W> {
+    fn seek(&mut self, pos: std::io::SeekFrom) -> std::io::Result<u64> {
+        self.inner.seek(pos)
     }
 }
 
