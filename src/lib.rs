@@ -22,7 +22,7 @@ use std::{
 ///
 /// let text = "Hello\nWorld!";
 ///
-/// writer.write_all(text.as_bytes()).unwrap();
+/// writeln!(writer, "{}", text).unwrap();
 /// ```
 pub struct DelayWriter<W: Write> {
     inner: W,

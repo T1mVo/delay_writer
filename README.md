@@ -22,7 +22,7 @@ let mut writer = DelayWriter::new(stdout, Duration::from_millis(100));
 
 let text = "Hello\nWorld!";
 
-writer.write_all(text.as_bytes()).unwrap();
+writeln!(writer, "{}", text).unwrap();
 ```
 
 ## License
